@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+   <title>Servidor da porta</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<center>
+<body>
+	<div class="wizardwelcombox">
+    <div style="background-color:#4598aa; height:88px;">
+        <div style="margin-left:150px; ">
+            <div class="pull-left" style="padding-top:27px; padding-right:12px;"><img src="/image/d-link_logo02.png" width="148" height="30"></div>
+            <div class="pull-left" style="margin-top:30px;border-left:3px solid #ffffff; height:28px; line-height:28px; padding-left:18px;color:#ffffff; font-size:28px; font-weight:bold;">
+                <span id="hw_version">DIR-846</span>
+            </div>
+        </div>
+    </div>
+    <table cellspacing="0" cellpadding="0" style="width:290px; margin:0 auto;margin-top:68px;">
+        <tbody><tr>
+            <td>
+                <div class="login_text_eye_div" id="loginpassworddiv1">
+                    <input type="password" id="admin_Password1" size="27" maxlength="63" name="admin_Password1" class="login_text_eye_input hiddeneye" onkeydown="detect_KeyValue(event);">
+                    <div class="ui-input-rightimg_eye1" id="closepassword2" onclick="passwordType(0);" style="top:11px;"><img src="/image/icon_xianshi.png" height="20" width="20"></div>
+                    <label id="pwdstr1" for="admin_Password1" class="inputpwdlable" style="top:8px;">
+                        <script>I18N("h", "Login_Password");</script>Por favor, insira a senha<!-- 请输入管理员密码 --></label>
+                </div>
+                <div class="login_text_eye_div" id="loginpassworddiv2" style="display:none; ">
+                    <input type="text" id="admin_Password2" size="30" maxlength="63" name="admin_Password2" class="login_text_eye_input hiddenclean" onkeydown="detect_KeyValue(event);">
+                    <div class="ui-input-rightimg_eye1" id="openpassword2" onclick="passwordType(1);" style="top:11px;">
+                        <img src="/image/icon_yingcang.png" height="20" width="20"></div>
+                    <label id="pwdstr2" for="admin_Password2" class="inputpwdlable" style="top:8px;">
+                        <script>I18N("h", "Login_Password");</script>Por favor, insira a senha<!-- 请输入管理员密码 --></label>
+                </div>
+            </td>
+        </tr>
+        <tr id="error_1" style="display:none;" align="left">
+            <td class="errorinfo" style="padding-top:12px; ">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div class="error_login"></div>
+                        </td>
+                        <td id="errorinfo_1"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr style="height:28px; "></tr>
+        <tr>
+            <td><input type="button" value="Acessar" id="logIn_btn" class="styled_button_long" onclick="OnClickLogin();"></td>
+        </tr>
+    </tbody></table>
+</div>
+   <h1>Servidor da Porta</h1>
+   {% for pin in pins %}
+   <h2>{{ pins[pin].name }}
+   {% if pins[pin].state == false %}
+      <div class="row"><div class="col-md-2">
+      <a href="/{{pin}}/open" class="w3-button w3-black" role="button">Abrir</a></div></div>
+   {% endif %}
+   {% endfor %}
+</body>
+</center>
+</html>

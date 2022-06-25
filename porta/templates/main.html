@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+   <title>Projeto Interdisciplinar I</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ 
+</head>
+<center>
+<style>
+body {
+	background-color: #d3d3d3;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 60px;
+        border: 3px solid #000000;
+        display: flex; 
+        align-items: center;
+        flex-direction: column;
+        padding: 10px;
+}
+#desenho .porta {
+                  background-color: #000000;
+                  margin-left: auto;
+                  margin-right: auto; 
+                  height: 300px;
+                  width: 230px;
+                  right: 113px;
+                  bottom: 0;
+}
+#desenho .porta::after{
+                         content: ''; 
+                         position: absolute;
+                         margin-left: 670px;
+                         margin-right: 670px;
+                         width: 50px; 
+                         height: 50px; 
+                         border-radius: 50%;
+                         background-color: #008080; 
+                         right: 15px;
+                         top: 50%;
+}
+</style>
+<body> 
+   <div class = "w3-text-white w3-blue">
+      <h1>Pi 1: Fechadura Inteligente</h1>
+      <p>O presente projeto consiste na abertura de uma fechadura ao clicar no botao atraves de um algoritmo desenvolvido em Python</p>
+      <p>Grupo: Alessandro, Lucas, Lorenza, Hiago, Matheus e Vitor</p> 
+   </div>
+   <div id="desenho">
+      <div class="porta"></div>
+   </div>
+   {% for pin in pins %}
+   <h3>{{ pins[pin].name }}<h3> 
+   <div class =  "w3-text-red">
+      <h4>Clique no botao abaixo para abrir a fechadura</h4>
+   </div>
+   {% if pins[pin].state == true %}
+   <div class="row"><div class="col-md-2">
+   <a href="/{{pin}}/open" class="w3-button w3-green w3-hover-yellow w3-round-xxxlarge w3-text-black" role="button">Abrir</a></div></div>
+   {% endif %}
+   {% endfor %}
+</body>
+</center>
+</html>
