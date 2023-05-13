@@ -11,14 +11,14 @@ for pin in pins:
    GPIO.output(pin, GPIO.HIGH)
 @app.route("/")
 def main():
-    for pin in pins:
-      pins[pin]['state'] = GPIO.input(pin)
-    templateData = {
-      'pins' : pins
-      }
-    return render_template('main.html', **templateData)
+   for pin in pins:
+     pins[pin]['state'] = GPIO.input(pin)
+   templateData = {
+     'pins' : pins
+     }
+   return render_template('main.html', **templateData)
 @app.route("/<changePin>/<action>", methods=['GET', 'POST'])
-def action(changePin, action):
+def action(changePin, action):S
    changePin = int(changePin)
    deviceName = pins[changePin]['name']
    if action == "open":
