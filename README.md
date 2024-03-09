@@ -1,4 +1,4 @@
-# Fechadura-inteligente
+# Fechadura Inteligente
 
 Projeto interdisciplinar da faculdade, que consiste em uma porta que abre através de uma página web. Utilizamos o hardware Raspberry Pi.
 
